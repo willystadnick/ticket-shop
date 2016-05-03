@@ -11,6 +11,9 @@
                     <th>{{ trans('eventos.nome') }}</th>
                     <th>{{ trans('eventos.realizacao') }}</th>
                     <th>{{ trans('eventos.organizador') }}</th>
+                    <th>{{ trans('eventos.descricao') }}</th>
+                    <th>{{ trans('eventos.lotacao') }}</th>
+                    <th>{{ trans('eventos.tipo') }}</th>
                     <th>{{ trans('app.actions') }}</th>
                 </tr>
             </thead>
@@ -20,6 +23,9 @@
                     <td>{{ $item->nome }}</td>
                     <td>{{ $item->realizacao }}</td>
                     <td>{{ $item->organizador }}</td>
+                    <td>{{ $item->descricao }}</td>
+                    <td>{{ $item->lotacao }}</td>
+                    <td>{{ App\Evento::$tipos[$item->tipo] }}</td>
                     <td>
                         <a href="{{ url('eventos', $item->id) }}" class="btn btn-info btn-xs">{{ trans('app.show') }}</a>
                         <a href="{{ url('/eventos/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs">{{ trans('app.edit') }}</a>
