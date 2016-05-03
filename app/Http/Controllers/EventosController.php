@@ -41,7 +41,7 @@ class EventosController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['nome' => 'required', 'realizacao' => 'required', ]);
+        $this->validate($request, ['nome' => 'required', 'realizacao' => 'required|date|after:today']);
 
         Evento::create($request->all());
 
@@ -87,7 +87,7 @@ class EventosController extends Controller
      */
     public function update($id, Request $request)
     {
-        $this->validate($request, ['nome' => 'required', 'realizacao' => 'required', ]);
+        $this->validate($request, ['nome' => 'required', 'realizacao' => 'required|date|after:today', ]);
 
         $evento = Evento::findOrFail($id);
         $evento->update($request->all());
