@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['web']], function () {
-	Route::resource('eventos', 'EventosController');
+    Route::resource('eventos', 'EventosController');
+    Route::get('/eventos/{id}/publish', 'EventosController@publish');
 });

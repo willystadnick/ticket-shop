@@ -41,6 +41,9 @@
                     <td>{{ $item->lotacao }}</td>
                     <td>{{ App\Evento::$tipos[$item->tipo] }}</td>
                     <td>
+                        @if(!$item->publicado)
+                        <a href="{{ url('/eventos/' . $item->id . '/publish') }}" class="btn btn-warning btn-xs">Publicar</a>
+                        @endif
                         <a href="{{ url('eventos', $item->id) }}" class="btn btn-info btn-xs">{{ trans('app.show') }}</a>
                         <a href="{{ url('/eventos/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs">{{ trans('app.edit') }}</a>
                         {!! Form::open([

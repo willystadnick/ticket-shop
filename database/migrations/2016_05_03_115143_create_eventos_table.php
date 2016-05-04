@@ -20,6 +20,7 @@ class CreateEventosTable extends Migration
             $table->text('descricao');
             $table->integer('lotacao');
             $table->char('tipo', 1);
+            $table->boolean('publicado')->default(false);
             $table->timestamps();
         });
     }

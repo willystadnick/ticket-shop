@@ -127,4 +127,24 @@ class EventosController extends Controller
 
         return redirect('eventos');
     }
+
+    /**
+     * Publishes the specified event.
+     *
+     * @param  int  $id
+     *
+     * @return void
+     */
+    public function publish($id)
+    {
+        $evento = Evento::findOrFail($id);
+
+        $evento->publicado = true;
+
+        $evento->save();
+
+        Session::flash('flash_message', 'Evento published!');
+
+        return redirect('eventos');
+    }
 }
