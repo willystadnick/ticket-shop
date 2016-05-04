@@ -16,6 +16,20 @@
                     <th>{{ trans('eventos.tipo') }}</th>
                     <th>{{ trans('app.actions') }}</th>
                 </tr>
+                <tr>
+                    {!! Form::open(['url' => '/eventos', 'method' => 'get', 'class' => 'form-horizontal']) !!}
+                    <th>{!! Form::text('nome', $filtros['nome'], ['class' => 'form-control']) !!}</th>
+                    <th>{!! Form::date('realizacao', $filtros['realizacao'], ['class' => 'form-control']) !!}</th>
+                    <th>{!! Form::text('organizador', $filtros['organizador'], ['class' => 'form-control']) !!}</th>
+                    <th>{!! Form::text('descricao', $filtros['descricao'], ['class' => 'form-control']) !!}</th>
+                    <th>{!! Form::text('lotacao', $filtros['lotacao'], ['class' => 'form-control']) !!}</th>
+                    <th>{!! Form::select('tipo', App\Evento::$tipos, $filtros['tipo'], ['class' => 'form-control']) !!}</th>
+                    <th>
+                        {!! Form::submit('Filtrar', ['class' => 'btn btn-primary btn-xs']) !!}
+                        <a href="{{ url('eventos') }}" class="btn btn-danger btn-xs">Limpar</a>
+                    </th>
+                    {!! Form::close() !!}
+                </tr>
             </thead>
             <tbody>
             @foreach($eventos as $item)

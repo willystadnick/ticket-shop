@@ -17,11 +17,26 @@ class EventosController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function index(Request $request)
     {
-        $eventos = Evento::paginate(15);
+        $filtros = [
+            'nome'        => $request->input('nome'),
+            'realizacao'  => $request->input('realizacao'),
+            'organizador' => $request->input('organizador'),
+            'descricao'   => $request->input('descricao'),
+            'lotacao'     => $request->input('lotacao'),
+            'tipo'        => $request->input('tipo'),
+        ];
 
-        return view('eventos.index', compact('eventos'));
+        $eventos = Evento::nome($filtros['nome'])
+            ->realizacao($filtros['realizacao'])
+            ->organizador($filtros['organizador'])
+            ->descricao($filtros['descricao'])
+            ->lotacao($filtros['lotacao'])
+            ->tipo($filtros['tipo'])
+            ->paginate(15);
+
+        return view('eventos.index', compact('filtros', 'eventos'));
     }
 
     /**

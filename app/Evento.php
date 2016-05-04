@@ -31,5 +31,59 @@ class Evento extends Model
      *
      * @var array
      */
-    public static $tipos = ['show', 'balada', 'teatro', 'esporte'];
+    public static $tipos = ['', 'show', 'balada', 'teatro', 'esporte'];
+
+    public function scopeNome($query, $nome)
+    {
+        if (empty($nome)) {
+            return $query;
+        }
+
+        return $query->where('nome', 'like', '%' . str_replace(' ', '%', $nome) . '%');
+    }
+
+    public function scopeRealizacao($query, $realizacao)
+    {
+        if (empty($realizacao)) {
+            return $query;
+        }
+
+        return $query->where('realizacao', $realizacao);
+    }
+
+    public function scopeOrganizador($query, $organizador)
+    {
+        if (empty($organizador)) {
+            return $query;
+        }
+
+        return $query->where('organizador', 'like', '%' . str_replace(' ', '%', $organizador) . '%');
+    }
+
+    public function scopeDescricao($query, $descricao)
+    {
+        if (empty($descricao)) {
+            return $query;
+        }
+
+        return $query->where('descricao', 'like', '%' . str_replace(' ', '%', $descricao) . '%');
+    }
+
+    public function scopeLotacao($query, $lotacao)
+    {
+        if (empty($lotacao)) {
+            return $query;
+        }
+
+        return $query->where('lotacao', $lotacao);
+    }
+
+    public function scopeTipo($query, $tipo)
+    {
+        if (empty($tipo)) {
+            return $query;
+        }
+
+        return $query->where('tipo', $tipo);
+    }
 }
