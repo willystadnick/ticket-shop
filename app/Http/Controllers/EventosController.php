@@ -139,6 +139,12 @@ class EventosController extends Controller
     {
         $evento = Evento::findOrFail($id);
 
+        if (!$evento->ehPublicavel()) {
+            Session::flash('flash_message', 'Um evento não pode ser publicado após a data de realização!');
+
+            return redirect('eventos');
+        }
+
         $evento->publicado = true;
 
         $evento->save();

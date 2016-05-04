@@ -41,7 +41,7 @@
                     <td>{{ $item->lotacao }}</td>
                     <td>{{ App\Evento::$tipos[$item->tipo] }}</td>
                     <td>
-                        @if(!$item->publicado)
+                        @if($item->ehPublicavel())
                         <a href="{{ url('/eventos/' . $item->id . '/publish') }}" class="btn btn-warning btn-xs">Publicar</a>
                         @endif
                         <a href="{{ url('eventos', $item->id) }}" class="btn btn-info btn-xs">{{ trans('app.show') }}</a>

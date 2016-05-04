@@ -86,4 +86,9 @@ class Evento extends Model
 
         return $query->where('tipo', $tipo);
     }
+
+    public function ehPublicavel()
+    {
+        return ! $this->publicado && strtotime($this->realizacao) > date('U');
+    }
 }
