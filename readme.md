@@ -1,4 +1,4 @@
-# Exercício técnico – Analista de desenvolvimento
+# Avaliação técnica - Analista de desenvolvimento - Blueticket
 
 Vamos abrir uma empresa de ingressos e precisamos construir as bases da nossa operação.
 Nossa operação baseia-se em prestar serviço aos organizadores, disponibilizando os ingressos de seus eventos em um canal online.
