@@ -1,7 +1,5 @@
 {
-    "name": "willystadnick/blueticket-exercicio",
-    "description": "Exercício técnico – Analista de desenvolvimento proposto por Blueticket e desenvolvido por Willy Stadnick.",
-    "keywords": ["exercicio", "tecnico", "blueticket"],
+    "name": "willystadnick/ticket-shop",
     "license": "DBAD",
     "type": "project",
     "require": {
