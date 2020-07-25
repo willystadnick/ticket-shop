@@ -22,7 +22,7 @@ Same as [Laravel 5.2](https://laravel.com/docs/5.2/installation#server-requireme
 1. [Optional] Run database seeds `php artisan db:seed`
 1. Serve application `php artisan serve`
 
-## Autor
+## Author
 
 | [<img src="https://avatars2.githubusercontent.com/u/1824706?s=120&v=4" width=120><br><sub>@willystadnick</sub>](https://github.com/willystadnick) |
 | :---: |
